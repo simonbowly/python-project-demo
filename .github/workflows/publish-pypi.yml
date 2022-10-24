@@ -1,0 +1,26 @@
+name: Upload to PyPI
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install build twine
+    - name: Build package
+      run: python -m build
+    - name: Publish package
+      run: twine upload -u __token__ -p ${{ secrets.PYPI_TOKEN }} dist/*.whl

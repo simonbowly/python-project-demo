@@ -7,8 +7,9 @@
 
 **Table of Contents**
 
-- [Installation](#installation)
-- [License](#license)
+- [Hatch Demo Simon Bowly](#hatch-demo-simon-bowly)
+  - [Installation](#installation)
+  - [License](#license)
 
 ## Installation
 
