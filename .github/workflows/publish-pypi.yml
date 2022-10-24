@@ -1,4 +1,4 @@
-name: Upload to PyPI
+name: Upload to PyPI Test
 
 on:
   push:
@@ -23,4 +23,4 @@ jobs:
     - name: Build package
       run: python -m build
     - name: Publish package
-      run: twine upload -u __token__ -p ${{ secrets.PYPI_TOKEN }} dist/*.whl
+      run: twine upload --repository testpypi -u __token__ -p ${{ secrets.PYPI_TOKEN }} dist/*.whl
