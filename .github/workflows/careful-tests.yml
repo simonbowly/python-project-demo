@@ -1,6 +1,6 @@
 # Careful test job: run unit tests on multiple platforms and python versions
 
-name: Upload to PyPI Test
+name: Careful tests
 
 on:
   push:
@@ -10,10 +10,6 @@ on:
 jobs:
   code-quality:
     uses: ./.github/workflows/code-quality.yml
-  unit-tests:
-    uses: ./.github/workflows/unit-tests.yml
+  unit-tests-multiplatform:
+    uses: ./.github/workflows/unit-tests-multiplatform.yml
     needs: [code-quality]
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        python: ["3.7", "3.8", "3.9", "3.10"]
