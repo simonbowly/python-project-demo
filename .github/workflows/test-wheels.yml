@@ -30,13 +30,13 @@ jobs:
           python -m pip install --upgrade pip build
       - name: Build wheel
         run: |
-          python -m build --wheel
+          python -m build
       - name: Fetch dependencies
         run: |
           pip wheel -f dist --wheel-dir=dist hatch-demo-simon-bowly
       - name: Install wheel
         run: |
-          python -m pip install -f dist --no-index hatch-demo-simon-bowly
+          python -m pip install -f dist --no-index --only-binary=:all: hatch-demo-simon-bowly
       - name: Test import
         run: |
           python -c "import hatch_demo_simon_bowly"
