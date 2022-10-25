@@ -24,6 +24,8 @@ jobs:
         python -m pip install build twine
     - name: Build package
       run: python -m build
+    - name: Debug checks
+      run: ls -l dist/
     - name: Debug publish with twine
       env:
         PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
