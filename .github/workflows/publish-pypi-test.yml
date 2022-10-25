@@ -5,9 +5,6 @@ name: Upload wheel to PyPI Test
 
 on:
   workflow_call:
-  push:
-    branches:
-      - main
 
 jobs:
   publish-pypi-test:
