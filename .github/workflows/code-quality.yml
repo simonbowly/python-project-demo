@@ -1,16 +1,12 @@
 # Run syntax checks against min python version (3.7)
 # Acts as gatekeeper for bigger workflows
+# Uses no variables
+# Has no triggers other than workflow_call
 
 name: Basic code quality checks
 
 on:
   workflow_call:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
 
 permissions:
   contents: read

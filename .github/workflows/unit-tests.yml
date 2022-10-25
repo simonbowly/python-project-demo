@@ -1,15 +1,14 @@
 # Run the unit tests against given OSs and Pythons
+# Needs to have a matrix to work ... but it seems if this run has more
+# than one matrix replica, you get duplicates when it is used with
+# larger matrices. So just included python3.7 here.
+# Has no triggers
+# matrix.python is required from the caller
 
 name: Python unit tests
 
 on:
   workflow_call:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
 
 permissions:
   contents: read
@@ -17,12 +16,7 @@ permissions:
 jobs:
   build:
 
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        python: ["3.7"]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
