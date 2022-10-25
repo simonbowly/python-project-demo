@@ -2,6 +2,9 @@ name: Upload wheel to PyPI Test
 
 on:
   workflow_call:
+  push:
+    branches:
+      - main
 
 jobs:
   publish-pypi-test:
@@ -19,4 +22,5 @@ jobs:
     - name: Build package
       run: python -m build
     - name: Publish package
-      run: twine upload --repository testpypi -u __token__ -p ${{ secrets.PYPI_TOKEN }} dist/*.whl
+      run: find . -type f
+      # run: twine upload --repository testpypi -u __token__ -p ${{ secrets.PYPI_TOKEN }} dist/*.whl
