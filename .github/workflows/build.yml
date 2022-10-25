@@ -1,0 +1,15 @@
+# Just build and test wheels, don't release. Run by tag.
+
+name: Build
+
+on:
+  push:
+    tags:
+      - build*
+
+jobs:
+  code-quality:
+    uses: ./.github/workflows/code-quality.yml
+  test-wheels:
+    uses: ./.github/workflows/test-wheels.yml
+    needs: [code-quality]

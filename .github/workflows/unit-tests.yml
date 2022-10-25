@@ -1,4 +1,5 @@
-# Run the unit tests against several pythons
+# Run the unit tests against python3.8 on ubuntu, from
+# a direct install
 
 name: Unit tests
 
@@ -9,13 +10,14 @@ permissions:
   contents: read
 
 jobs:
-  unit-test:
+  unit-tests:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        python: ["3.7", "3.8", "3.9", "3.10"]
+        os: ubuntu-latest
+        python: ["3.8"]
 
     steps:
       - uses: actions/checkout@v3

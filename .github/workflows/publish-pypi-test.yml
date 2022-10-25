@@ -1,18 +1,10 @@
-name: Upload to PyPI Test
+name: Upload wheel to PyPI Test
 
 on:
-  push:
-    tags:
-      - v*
+  workflow_call:
 
 jobs:
-  code-quality:
-    uses: ./.github/workflows/code-quality.yml
-  unit-tests-multiplatform:
-    uses: ./.github/workflows/unit-tests-multiplatform.yml
-    needs: [code-quality]
   publish-pypi-test:
-    needs: [unit-tests-multiplatform]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3

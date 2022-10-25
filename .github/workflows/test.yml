@@ -1,7 +1,6 @@
-# Run unit tests on ubuntu against multiple python versions
-# Use this for regular QA (pull requests, main branch)
+# Regular QA workflow (pull requests, main branch)
 
-name: Regular tests
+name: Test
 
 on:
   push:

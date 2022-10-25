@@ -30,7 +30,7 @@ Issues = "https://github.com/unknown/hatch-demo-simon-bowly/issues"
 Source = "https://github.com/unknown/hatch-demo-simon-bowly"
 
 [tool.hatch.version]
-path = "hatch_demo_simon_bowly/__about__.py"
+path = "src/hatch_demo_simon_bowly/__about__.py"
 
 [tool.hatch.build.targets.sdist]
 [tool.hatch.build.targets.wheel]
@@ -51,7 +51,7 @@ python = ["37", "38", "39", "310"]
 branch = true
 parallel = true
 omit = [
-  "hatch_demo_simon_bowly/__about__.py",
+  "src/hatch_demo_simon_bowly/__about__.py",
 ]
 
 [tool.coverage.report]
