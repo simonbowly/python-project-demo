@@ -1,10 +1,10 @@
+# Build and upload a wheel. No tests run, this should be
+# handled via a larger workflow
+
 name: Upload wheel to PyPI Test
 
 on:
   workflow_call:
-  push:
-    branches:
-      - main
 
 jobs:
   publish-pypi-test:
