@@ -33,7 +33,7 @@ jobs:
           python -m build --wheel
       - name: Fetch dependencies
         run: |
-          python -m pip wheel --wheel-dir=dist dist/*.whl
+          pip wheel -f dist --wheel-dir=dist hatch-demo-simon-bowly
       - name: Install wheel
         run: |
           python -m pip install -f dist --no-index hatch-demo-simon-bowly
