@@ -14,9 +14,9 @@ on:
 jobs:
   code-quality:
     uses: ./.github/workflows/code-quality.yml
-  # unit-tests:
-  #   uses: ./.github/workflows/unit-tests.yml
-  #   needs: [code-quality]
-  #   strategy:
-  #     matrix:
-  #       python: ["3.7", "3.8", "3.9", "3.10"]
+  unit-tests:
+    uses: ./.github/workflows/unit-tests.yml
+    needs: [code-quality]
+    # strategy:
+    #   matrix:
+    #     python: ["3.7", "3.8", "3.9", "3.10"]
