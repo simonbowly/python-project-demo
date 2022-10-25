@@ -22,5 +22,4 @@ jobs:
     - name: Build package
       run: python -m build
     - name: Publish package
-      run: find . -type f
-      # run: twine upload --repository testpypi -u __token__ -p ${{ secrets.PYPI_TOKEN }} dist/*.whl
+      run: echo twine upload --repository testpypi -u __token__ -p ${{ secrets.PYPI_TOKEN }} dist/*.whl
