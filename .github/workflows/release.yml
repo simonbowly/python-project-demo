@@ -17,3 +17,4 @@ jobs:
   publish-pypi-test:
     uses: ./.github/workflows/publish-pypi-test.yml
     needs: [test-wheels]
+    secrets: inherit
