@@ -18,4 +18,3 @@ Would people be willing to just walk?
 
 **Additional context**
 Anything else useful to judge the usefulness of this line?
-

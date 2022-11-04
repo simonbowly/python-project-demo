@@ -30,6 +30,6 @@ jobs:
         run: |
           # stop the build if there are Python syntax errors or undefined names
           python -m flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-      - name: Very pre-commit checks passed
+      - name: Verify pre-commit checks passed
         run: |
           python -m pre-commit run --all-files
