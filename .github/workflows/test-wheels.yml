@@ -1,7 +1,7 @@
 # Run the unit tests against several pythons and platforms
-# using a built wheel to install the package.
+# using a pre-built wheel artifact to install the package.
 
-name: Test wheels
+name: Test wheel
 
 on:
   workflow_call:
@@ -11,6 +11,11 @@ permissions:
   contents: read
 
 jobs:
+
+  build-wheel:
+
+    uses: ./.github/workflows/build-wheel.yml
+
   test-wheels:
 
     runs-on: ${{ matrix.os }}
@@ -26,15 +31,19 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python }}
-      - name: Install build tools
+      - name: File listing
+        run: ls dist/
+      - name: Fetch built wheel
+        uses: actions/download-artifact@v3
+        with:
+          name: wheel-artifact
+      - name: File listing
+        run: ls dist/
+      - name: Fetch dependencies for offline install
         run: |
-          python -m pip install --upgrade pip build
-      - name: Build wheel
-        run: |
-          python -m build
-      - name: Fetch dependencies
-        run: |
-          pip wheel -f dist --wheel-dir=dist hatch-demo-simon-bowly
+          pip wheel --wheel-dir=dist pandas
+      - name: File listing
+        run: ls dist/
       - name: Install wheel
         run: |
           python -m pip install -f dist --no-index --only-binary=:all: hatch-demo-simon-bowly
