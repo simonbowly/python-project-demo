@@ -18,6 +18,8 @@ jobs:
 
   test-wheels:
 
+    needs: [build-wheel]
+
     runs-on: ${{ matrix.os }}
 
     strategy:
