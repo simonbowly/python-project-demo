@@ -34,18 +34,18 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - name: File listing
-        run: ls -R dist/
+        run: ls -R
       - name: Fetch built wheel
         uses: actions/download-artifact@v3
         with:
           name: wheel-artifact
       - name: File listing
-        run: ls -R dist/
+        run: ls -R
       - name: Fetch dependencies for offline install
         run: |
           pip wheel --wheel-dir=dist pandas
       - name: File listing
-        run: ls -R dist/
+        run: ls -R
       - name: Install wheel
         run: |
           python -m pip install -f dist --no-index --only-binary=:all: hatch-demo-simon-bowly
