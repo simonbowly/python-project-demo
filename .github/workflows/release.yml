@@ -11,7 +11,10 @@ on:
 jobs:
   code-quality:
     uses: ./.github/workflows/code-quality.yml
+  unit-tests:
+    uses: ./.github/workflows/unit-tests.yml
   test-wheels:
+    # test-wheels triggers building of artifacts
     uses: ./.github/workflows/test-wheels.yml
     needs: [code-quality]
   publish-pypi-test:
