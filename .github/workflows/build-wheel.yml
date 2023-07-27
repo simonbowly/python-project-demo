@@ -25,8 +25,10 @@ jobs:
       - name: Build wheel and sdist
         run: |
           python -m build
+      - name: File listing
+        run: ls -R dist/
       - name: Archive wheel as artifact
         uses: actions/upload-artifact@v3
         with:
           name: wheel-artifact
-          path: dist
+          path: dist/
