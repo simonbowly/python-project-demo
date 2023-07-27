@@ -31,4 +31,9 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: wheel-artifact
-          path: dist/
+          path: dist/*.whl
+      - name: Archive sdist as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: sdist-artifact
+          path: dist/*.tar.gz
