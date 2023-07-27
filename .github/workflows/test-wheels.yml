@@ -39,6 +39,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: wheel-artifact
+          path: dist
       - name: File listing
         run: ls -R
       - name: Fetch dependencies for offline install
