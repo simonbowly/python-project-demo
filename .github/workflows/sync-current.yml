@@ -11,6 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: 'main'
+      - uses: actions/checkout@v4
+        with:
           ref: 'current'
       - name: Fast forward
         run: |
