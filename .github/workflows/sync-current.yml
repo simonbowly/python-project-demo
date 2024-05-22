@@ -11,10 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 'main'
-      - uses: actions/checkout@v4
-        with:
           ref: 'current'
       - name: Fast forward
         run: |
+          git fetch origin main
           git merge --ff-only main
