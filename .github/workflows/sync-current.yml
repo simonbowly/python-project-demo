@@ -12,3 +12,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: 'current'
+      - name: Fast forward
+        run: |
+          git merge --ff-only main
